@@ -19,7 +19,7 @@ def calc(yrav=None, symb='='):
     answer = ''
     #проверка является ли уравнение полным
     if yrav != '':
-        if (yrav[-1] == 'x' or yrav.count('x') < 2):
+        if yrav.count('x') < 2:
             messagebox.showerror('Ошибка 3', 'не полное уравнение')
             return
     koef = list(map(lambda x: x.lstrip('+'), yrav.split('x')))
@@ -111,7 +111,7 @@ def calc(yrav=None, symb='='):
         elif symb == '<=':
             answer = f'x ∈[{round(x1, 1)};{round(x2, 1)}]'
         elif symb == '>=':
-            answer = f'x ∈(+∞;{round(x1, 1)}]⋃[{round(x2, 1)};-∞)'
+            answer = f'x ∈(-∞;{round(x1, 1)}]⋃[{round(x2, 1)};+∞)'
         else:
             answer = f'{round(x1, 1)};{round(x2, 1)}'
     #пишет ответ        
